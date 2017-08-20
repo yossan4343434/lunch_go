@@ -16,6 +16,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootstrap-sass', '3.3.7'
 gem 'rails-controller-testing'
 gem 'bcrypt', '~> 3.1.11'
+gem 'jquery-ui-rails'
+gem 'jquery-rails'
 # gem 'therubyracer', platforms: :ruby
 # gem 'redis', '~> 3.0'
 # gem 'capistrano-rails', group: :development

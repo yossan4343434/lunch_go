@@ -78,6 +78,10 @@ class User < ApplicationRecord
     following.include?(other_user)
   end
 
+  def standbies_on_or_after_today
+    Standby.where("user_id = :user_id AND date >= :today", user_id: id, today: Time.zone.today)
+  end
+
   private
     
     def downcase_email

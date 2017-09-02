@@ -7,4 +7,4 @@ test:
 production:
   adapter: redis
   url: redis://localhost:6379/1
-  channel_prefix: match_lunch_production
+  channel_prefix: lunch_go_production

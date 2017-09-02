@@ -6,13 +6,6 @@ class StandbiesControllerTest < ActionDispatch::IntegrationTest
     @standby = standbies(:most_recent)
   end
 
-  test "should redirect index when not logged in" do
-    assert_no_difference 'Standby.count' do
-      get standbies_path
-    end
-    assert_redirected_to login_url
-  end
-
   test "should redirect create when not logged in" do
     assert_no_difference 'Standby.count' do
       post standbies_path, params: { standby: { date: Time.zone.today } }

@@ -1,6 +1,6 @@
 <li id="standby-<%= standby.id %>">
   <%= standby.date %>
   <% if current_user?(standby.user) %>
-    <%= link_to "取り消す", standby, method: :delete, data: { confirm: "You sure?" } %>
+    <%= link_to "取り消す", standby, method: :delete, data: { confirm: "本当によろしいですか？" } %>
   <% end %>
 </li>

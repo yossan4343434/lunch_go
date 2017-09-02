@@ -8,8 +8,8 @@ class StandbiesController < ApplicationController
       flash[:success] = "ランチGO!に予約しました！"
       redirect_to root_url
     else
-      flash[:danger] = "重複して予約を行うことはできません"
-      redirect_to root_url
+      flash[:danger] = "入力に誤りがあります"
+      redirect_to request.referrer || root_url
     end
   end
 

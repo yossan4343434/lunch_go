@@ -1,17 +1,9 @@
 class StaticPagesController < ApplicationController
+
   def home
     if logged_in?
-      @micropost = current_user.microposts.build
-      @feed_items = current_user.feed.paginate(page: params[:page])
+      @standby = current_user.standbies.build
+      @standby_reservations = current_user.standbies.paginate(page: params[:page])
     end
-  end
-
-  def help
-  end
-
-  def about
-  end
-
-  def contact
   end
 end

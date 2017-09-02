@@ -1,0 +1,10 @@
+<h3>ランチGO!予約一覧 (<%= @standby_reservations.count %>)</h3>
+<% if @standby_reservations.any? %>
+  <ul class="standby_reservations">
+    <%= render @standby_reservations %>
+  </ul>
+  <%= will_paginate @standby_reservations %>
+<% else %>
+  <p>ランチGO!の予約はありません</p>
+<% end %>
+

@@ -1,0 +1,14 @@
+most_recent:
+  user: archer
+  date: 2018-02-01
+  created_at: <%= Time.zone.today %>
+
+2018-01-01:
+  user: archer
+  date: 2018-01-01
+  created_at: <%= 10.minutes.ago %>
+
+2017-01-01:
+  user: archer
+  date: 2017-01-01
+  created_at: <%= 3.years.ago %>

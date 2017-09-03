@@ -1,0 +1,12 @@
+<h3>本日のランチ相手</h3>
+<% if @todays_home && @todays_away %>
+  <ul class="today_match">
+    <li>Home | <%= @todays_home.name %> (お店を決めてください)</li>
+    <li>Away | <%= @todays_away.name %></li>
+    <% if @todays_referee %>
+      <li>審判 | <%= @todays_referee.name %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>本日のランチ相手はまだいません</p>
+<% end %>

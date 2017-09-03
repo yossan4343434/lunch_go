@@ -10,7 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170902040023) do
+ActiveRecord::Schema.define(version: 20170903011611) do
+
+  create_table "matches", force: :cascade do |t|
+    t.string "date"
+    t.integer "home_id"
+    t.integer "away_id"
+    t.integer "referee_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["away_id"], name: "index_matches_on_away_id"
+    t.index ["date"], name: "index_matches_on_date"
+    t.index ["home_id"], name: "index_matches_on_home_id"
+    t.index ["referee_id"], name: "index_matches_on_referee_id"
+  end
 
   create_table "microposts", force: :cascade do |t|
     t.text "content"

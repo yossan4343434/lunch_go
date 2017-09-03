@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170903011611) do
+ActiveRecord::Schema.define(version: 20170903084713) do
 
   create_table "matches", force: :cascade do |t|
     t.string "date"
@@ -23,26 +23,6 @@ ActiveRecord::Schema.define(version: 20170903011611) do
     t.index ["date"], name: "index_matches_on_date"
     t.index ["home_id"], name: "index_matches_on_home_id"
     t.index ["referee_id"], name: "index_matches_on_referee_id"
-  end
-
-  create_table "microposts", force: :cascade do |t|
-    t.text "content"
-    t.integer "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "picture"
-    t.index ["user_id", "created_at"], name: "index_microposts_on_user_id_and_created_at"
-    t.index ["user_id"], name: "index_microposts_on_user_id"
-  end
-
-  create_table "relationships", force: :cascade do |t|
-    t.integer "follower_id"
-    t.integer "followed_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["followed_id"], name: "index_relationships_on_followed_id"
-    t.index ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true
-    t.index ["follower_id"], name: "index_relationships_on_follower_id"
   end
 
   create_table "standbies", force: :cascade do |t|

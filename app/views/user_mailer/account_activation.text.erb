@@ -1,5 +1,6 @@
-Hi <%= @user.name %>
+<%= @user.name %> さま
 
-Welcome to the Match Lunch! click on the link below to activate your account:
+ランチGO！にご登録頂きありがとうございます。
+以下のリンクからメールアドレスを認証してください。
 
 <%= edit_account_activation_url(@user.activation_token, email: @user.email) %>

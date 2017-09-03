@@ -12,6 +12,7 @@ class SessionsController < ApplicationController
       else
         message = "メールアドレスが認証されていません"
         message += "メールを確認してください"
+        message += "メールが届くまでに3分ほどかかる場合があります"
         flash[:warning] = message
         redirect_to root_url
       end

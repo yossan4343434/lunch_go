@@ -4,6 +4,7 @@ class UsersController < ApplicationController
   before_action :admin_user, only: :destroy
 
   def index
+    @standby = current_user.standbies.build
     @users = User.paginate(page: params[:page])
   end
 

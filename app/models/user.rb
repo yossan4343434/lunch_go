@@ -60,6 +60,25 @@ class User < ApplicationRecord
     Standby.where("user_id = :user_id AND date >= :today", user_id: id, today: Time.zone.today)
   end
 
+  def standby_today
+    Standby.where("user_id = :user_id AND date = :today", user_id: id, today: Time.zone.today)
+  end
+
+  def home_today(user)
+    todays_match = Match.where(date: Time.zone.today).find_by("home_id = #{user.id} OR away_id = #{user.id} OR referee_id = #{user.id}")
+    User.find(todays_match.home_id) if todays_match && todays_match.home_id
+  end
+
+  def away_today(user)
+    todays_match = Match.where(date: Time.zone.today).find_by("home_id = #{user.id} OR away_id = #{user.id} OR referee_id = #{user.id}")
+    User.find(todays_match.away_id) if todays_match && todays_match.away_id
+  end
+
+  def referee_today(user)
+    todays_match = Match.where(date: Time.zone.today).find_by("home_id = #{user.id} OR away_id = #{user.id} OR referee_id = #{user.id}")
+    User.find(todays_match.referee_id) if todays_match && todays_match.referee_id
+  end
+
   private
     
     def downcase_email

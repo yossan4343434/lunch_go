@@ -1,7 +1,11 @@
 <li>
   <%= link_to user.name, user %>
-  <% if current_user.admin? && !current_user?(user) %>
-    | 
-  <%= link_to "delete", user, method: :delete, data: { confirm: "You sure?" } %>
+  <%= "| 予約中" if user.standby_today.any? %>
+  <%= "| ホーム: #{user.home_today(user).name}" if !user.home_today(user).nil? %>
+  <%= "| アウェー: #{user.away_today(user).name}" if !user.away_today(user).nil? %>
+  <%= "| 審判: #{user.referee_today(user).name}" if !user.referee_today(user).nil? %>
+
+  <% if current_user.admin? %>
+    <%= render 'shared/standby_today_form', user: user %>
   <% end %>
 </li>

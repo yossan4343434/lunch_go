@@ -1,0 +1,8 @@
+<%= form_for @standby, html: { class: 'form-small' }  do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+
+  <%= f.hidden_field :user_id, value: user.id, class: 'form-control' %>
+  <%= f.hidden_field :date, value: Time.zone.today, class: 'form-control' %>
+
+  <%= f.submit "強制予約", class: "btn btn-primary btn-small" %>
+<% end %>

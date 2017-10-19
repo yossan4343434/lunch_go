@@ -4,6 +4,7 @@ class MatchesController < ApplicationController
   def create
     create_matches(todays_standbying_uids)
     flash[:success] = "マッチを作成しました！"
+    notify_to_slack
     redirect_to request.referrer || root_url
   end
 
@@ -48,5 +49,30 @@ class MatchesController < ApplicationController
 
     def create_match_trio(date, home, away, referee)
       @match = Match.create(date: date, home_id: home, away_id: away, referee_id: referee)
+    end
+
+    def notify_to_slack
+      Match.where(date: Time.zone.today).each do |m|
+        if @todays_match
+          if m.referee_id
+            @todays_match.push("ホーム: #{User.find(m.home_id).name}, アウェー: #{User.find(m.away_id).name}, 審判: #{User.find(m.referee_id).name}")
+          else
+            @todays_match.push("ホーム: #{User.find(m.home_id).name}, アウェー: #{User.find(m.away_id).name}")
+          end
+        else
+          if m.referee_id
+            @todays_match = ["ホーム: #{User.find(m.home_id).name}, アウェー: #{User.find(m.away_id).name}, 審判: #{User.find(m.referee_id).name}"]
+          else
+            @todays_match = ["ホーム: #{User.find(m.home_id).name}, アウェー: #{User.find(m.away_id).name}"]
+          end
+        end
+      end
+
+      text = <<-EOC
+      ランチGO!でランチ相手が決まりました！
+      #{@todays_match}
+      EOC
+
+      Slack.chat_postMessage text: text, username: "Lunch GO!", channel: "#2016shinsotsu"
     end
 end

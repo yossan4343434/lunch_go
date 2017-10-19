@@ -73,6 +73,6 @@ class MatchesController < ApplicationController
       #{@todays_match}
       EOC
 
-      Slack.chat_postMessage text: text, username: "Lunch GO!", channel: "#2016shinsotsu"
+      Slack.chat_postMessage text: text, username: "Lunch GO!", channel: "#litalico-hackathon"
     end
 end

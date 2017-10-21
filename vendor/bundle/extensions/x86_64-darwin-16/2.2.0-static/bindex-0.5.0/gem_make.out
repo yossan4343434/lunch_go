@@ -1,0 +1,11 @@
+/Users/yoshiyuki.kuga/.anyenv/envs/rbenv/versions/2.2.3/bin/ruby -r ./siteconf20171018-5869-15epam5.rb extconf.rb
+creating Makefile
+
+make "DESTDIR=" clean
+
+make "DESTDIR="
+compiling cruby.c
+linking shared-object bindex/cruby.bundle
+
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 cruby.bundle ./.gem.20171018-5869-y4ijq9/bindex

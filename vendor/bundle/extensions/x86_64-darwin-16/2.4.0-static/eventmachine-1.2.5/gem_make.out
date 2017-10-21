@@ -1,0 +1,16 @@
+current directory: /Users/yoshiyuki.kuga/work/lunch_go/vendor/bundle/gems/eventmachine-1.2.5/ext/fastfilereader
+/Users/yoshiyuki.kuga/.anyenv/envs/rbenv/versions/2.4.2/bin/ruby -r ./siteconf20171021-7229-thw8om.rb extconf.rb
+creating Makefile
+
+current directory: /Users/yoshiyuki.kuga/work/lunch_go/vendor/bundle/gems/eventmachine-1.2.5/ext/fastfilereader
+make "DESTDIR=" clean
+
+current directory: /Users/yoshiyuki.kuga/work/lunch_go/vendor/bundle/gems/eventmachine-1.2.5/ext/fastfilereader
+make "DESTDIR="
+compiling mapper.cpp
+compiling rubymain.cpp
+linking shared-object fastfilereaderext.bundle
+
+current directory: /Users/yoshiyuki.kuga/work/lunch_go/vendor/bundle/gems/eventmachine-1.2.5/ext/fastfilereader
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 fastfilereaderext.bundle ./.gem.20171021-7229-2qhqs2

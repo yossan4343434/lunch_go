@@ -55,9 +55,9 @@ class MatchesController < ApplicationController
       Match.where(date: Time.zone.today).each do |m|
         if @todays_match
           if m.referee_id
-            @todays_match.push("ホーム: #{User.find(m.home_id).name}, アウェー: #{User.find(m.away_id).name}, 審判: #{User.find(m.referee_id).name}")
+            @todays_match.push("    ホーム: #{User.find(m.home_id).name}, アウェー: #{User.find(m.away_id).name}, 審判: #{User.find(m.referee_id).name}")
           else
-            @todays_match.push("ホーム: #{User.find(m.home_id).name}, アウェー: #{User.find(m.away_id).name}")
+            @todays_match.push("    ホーム: #{User.find(m.home_id).name}, アウェー: #{User.find(m.away_id).name}")
           end
         else
           if m.referee_id
@@ -73,6 +73,6 @@ class MatchesController < ApplicationController
       #{@todays_match}
       EOC
 
-      Slack.chat_postMessage text: text, username: "Lunch GO!", channel: "#litalico-hackathon"
+      Slack.chat_postMessage text: text, username: "Lunch GO!", channel: "#h-navi"
     end
 end
